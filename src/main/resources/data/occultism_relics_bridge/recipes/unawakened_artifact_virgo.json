@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  R",
+        " RR",
+        "RR "
+    ],
+    "key": {
+        "R": {
+            "item": "occultism_relics_bridge:relic_part"
+        }
+    },
+    "result": {
+        "item": "occultism_relics_bridge:unawakened_artifact_virgo",
+        "count": 1
+    }
+}

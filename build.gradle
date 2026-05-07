@@ -1,0 +1,59 @@
+// Spezifische Einstellungen für diese Mod
+archivesBaseName = 'occultism_relics_bridge'
+group = 'net.occultism_relics_bridge'
+version = '1.0.0'
+
+minecraft {
+    // Hier definieren wir nur die Mixins und den Mod-Source für die Run-Configs.
+    // Das Basis-Setup (Mappings etc.) kommt später aus der Root build.gradle.
+    runs {
+        client {
+            arg "-mixin.config=occultism_relics_bridge.mixins.json"
+            mods { "occultism_relics_bridge" { source sourceSets.main } }
+        }
+        server {
+            arg "-mixin.config=occultism_relics_bridge.mixins.json"
+            mods { "occultism_relics_bridge" { source sourceSets.main } }
+        }
+    }
+}
+
+// Mixin-Setup für diese spezifische Mod
+mixin {
+    add sourceSets.main, "occultism_relics_bridge.refmap.json"
+    config "occultism_relics_bridge.mixins.json"
+}
+
+// Wir fügen hier einen expliziten Repositories-Block hinzu.
+// Das ist sicherer, falls die Vererbung aus der Root-Datei im CMD-Prompt zickt.
+repositories {
+    flatDir {
+        // Dieser Befehl zwingt Gradle, im 'libs' Ordner des ÜBERGEORDNETEN Projekts zu suchen.
+        dirs rootProject.file('libs')
+    }
+    maven { url = "https://cursemaven.com" } 
+}
+
+dependencies {
+    // Annotation Processor für die Mixins dieser Mod
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    // Die Abhängigkeiten dieser Mod (Variablen kommen aus der zentralen gradle.properties)
+    implementation name: "occultism-${occultism_version}"
+    implementation name: "relics-${relics_version}"
+}
+
+jar {
+    manifest {
+        attributes([
+            "Specification-Title": "Occultism Relics Bridge",
+            "Specification-Vendor": "KarlKarlmann",
+            "Specification-Version": "1",
+            "Implementation-Title": project.name,
+            "Implementation-Version": project.version,
+            "Implementation-Vendor": "KarlKarlmann",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            "MixinConfigs": "occultism_relics_bridge.mixins.json"
+        ])
+    }
+}

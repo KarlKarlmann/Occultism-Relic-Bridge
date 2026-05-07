@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "occultism_relics_bridge:item/aries_item"
+    }
+}

@@ -1,0 +1,34 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="occultism_relics_bridge"
+version="1.0.0"
+displayName="Occultism Relics Bridge"
+authors="KarlKarlmann"
+description='''
+A bridge between Occultism and Relics.
+Replaces the standard relic discovery with a new ritual awakening system.
+'''
+
+[[dependencies.occultism_relics_bridge]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.occultism_relics_bridge]]
+    modId="occultism"
+    mandatory=true
+    versionRange="[1.157.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.occultism_relics_bridge]]
+    modId="relics"
+    mandatory=true
+    versionRange="[0.8.0.13,)"
+    ordering="AFTER"
+    side="BOTH"

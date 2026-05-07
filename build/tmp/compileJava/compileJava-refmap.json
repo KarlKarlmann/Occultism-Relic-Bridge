@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "net/occultism_relics_bridge/mixin/client/DemonRamblingMixin": {
+      "render": "Lnet/minecraft/client/gui/screens/Screen;m_88315_(Lnet/minecraft/client/gui/GuiGraphics;IIF)V"
+    }
+  },
+  "data": {
+    "searge": {
+      "net/occultism_relics_bridge/mixin/client/DemonRamblingMixin": {
+        "render": "Lnet/minecraft/client/gui/screens/Screen;m_88315_(Lnet/minecraft/client/gui/GuiGraphics;IIF)V"
+      }
+    }
+  }
+}

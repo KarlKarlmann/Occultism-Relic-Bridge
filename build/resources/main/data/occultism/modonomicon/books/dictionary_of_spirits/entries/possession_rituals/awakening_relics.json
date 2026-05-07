@@ -1,0 +1,119 @@
+{
+  "category": "occultism:possession_rituals",
+  "icon": {
+    "item": "occultism_relics_bridge:unawakened_artifact_aries"
+  },
+  "name": "book.occultism_relics_bridge.dictionary_of_spirits.rituals.awakening_relics.name",
+  "x": 5,
+  "y": 1,
+  "parents": [
+    {
+      "entry": "occultism:summoning_rituals/overview",
+      "draw_arrow": true,
+      "line_enabled": true,
+      "line_reversed": false
+    }
+  ],
+  "pages": [
+    {
+      "type": "modonomicon:text",
+      "title": "book.occultism_relics_bridge.dictionary_of_spirits.rituals.awakening_relics.intro.title",
+      "text": "book.occultism_relics_bridge.dictionary_of_spirits.rituals.awakening_relics.intro.text",
+      "show_title_separator": true,
+      "use_markdown_in_title": false
+    },
+    {
+      "type": "modonomicon:crafting_recipe",
+      "recipe_id_1": "occultism_relics_bridge:unawakened_artifact_aries",
+      "recipe_id_2": "occultism_relics_bridge:unawakened_artifact_taurus"
+    },
+    {
+      "type": "modonomicon:image",
+      "anchor": "",
+      "border": false,
+      "images": [
+        "occultism_relics_bridge:textures/gui/relics.png"
+      ],
+      "text": "",
+      "title": ""
+    },
+    {
+      "type": "modonomicon:crafting_recipe",
+      "recipe_id_1": "occultism_relics_bridge:unawakened_artifact_gemini",
+      "recipe_id_2": "occultism_relics_bridge:unawakened_artifact_cancer"
+    },
+    {
+      "type": "modonomicon:crafting_recipe",
+      "recipe_id_1": "occultism_relics_bridge:unawakened_artifact_leo",
+      "recipe_id_2": "occultism_relics_bridge:unawakened_artifact_virgo"
+    },
+	{
+      "type": "modonomicon:image",
+      "anchor": "",
+      "border": false,
+      "images": [
+        "occultism_relics_bridge:textures/gui/summon.png"
+      ],
+      "text": "",
+      "title": ""
+    },
+    {
+      "type": "modonomicon:crafting_recipe",
+      "recipe_id_1": "occultism_relics_bridge:unawakened_artifact_libra",
+      "recipe_id_2": "occultism_relics_bridge:unawakened_artifact_scorpio"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "book.occultism_relics_bridge.dictionary_of_spirits.rituals.awakening_relics.intro2.title",
+      "text": "book.occultism_relics_bridge.dictionary_of_spirits.rituals.awakening_relics.intro2.text",
+      "show_title_separator": true,
+      "use_markdown_in_title": false
+    },
+    {
+      "type": "modonomicon:crafting_recipe",
+      "recipe_id_1": "occultism_relics_bridge:unawakened_artifact_sagittarius",
+      "recipe_id_2": "occultism_relics_bridge:unawakened_artifact_capricorn"
+    },
+    {
+      "type": "modonomicon:crafting_recipe",
+      "recipe_id_1": "occultism_relics_bridge:unawakened_artifact_aquarius",
+      "recipe_id_2": "occultism_relics_bridge:unawakened_artifact_pisces"
+    },
+    {
+      "type": "occultism:ritual_recipe",
+      "recipe_id_1": "occultism:ritual/awaken_aries_foliot"
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "book.occultism_relics_bridge.dictionary_of_spirits.rituals.awakening_relics.rituals.title",
+      "text": "book.occultism_relics_bridge.dictionary_of_spirits.rituals.awakening_relics.rituals.text",
+      "show_title_separator": true,
+      "use_markdown_in_title": false
+    },
+    {
+      "type": "modonomicon:text",
+      "title": "book.occultism_relics_bridge.dictionary_of_spirits.rituals.awakening_relics.rituals2.title",
+      "text": "book.occultism_relics_bridge.dictionary_of_spirits.rituals.awakening_relics.rituals2.text",
+      "show_title_separator": true,
+      "use_markdown_in_title": false
+    },
+    {
+      "type": "occultism:ritual_recipe",
+      "recipe_id_1": "occultism:ritual/awaken_aries_djinn"
+    },
+    {
+      "type": "occultism:ritual_recipe",
+      "recipe_id_1": "occultism:ritual/awaken_aries_marid"
+    },
+	{
+      "type": "modonomicon:image",
+      "anchor": "",
+      "border": false,
+      "images": [
+        "occultism_relics_bridge:textures/gui/posessed_relic.png"
+      ],
+      "text": "",
+      "title": ""
+    }
+  ]
+}

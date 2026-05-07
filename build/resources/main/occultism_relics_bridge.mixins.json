@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.occultism_relics_bridge.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "occultism_relics_bridge.refmap.json",
+  "mixins": [
+  "PreventDemonRerollMixin",
+  "RelicLootModifierMixin"
+  ],
+  "client": [
+  "client.DemonRamblingMixin",
+  "client.RerollButtonHoverMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

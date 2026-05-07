@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "RR ",
+        " R ",
+        " RR"
+    ],
+    "key": {
+        "R": {
+            "item": "occultism_relics_bridge:relic_part"
+        }
+    },
+    "result": {
+        "item": "occultism_relics_bridge:unawakened_artifact_aquarius",
+        "count": 1
+    }
+}

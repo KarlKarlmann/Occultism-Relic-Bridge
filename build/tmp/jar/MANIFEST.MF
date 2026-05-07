@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Specification-Title: Occultism Relics Bridge
+Specification-Vendor: KarlKarlmann
+Specification-Version: 1
+Implementation-Title: occultism_relics_bridge
+Implementation-Version: 1.0.0
+Implementation-Vendor: KarlKarlmann
+Implementation-Timestamp: 2026-05-06T15:34:49+0200
+MixinConfigs: occultism_relics_bridge.mixins.json
+

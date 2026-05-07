@@ -1,0 +1,12 @@
+{
+    "type": "occultism:crushing",
+    "ingredient": {
+        "tag": "occultism_relics_bridge:relics"
+    },
+    "result": {
+        "item": "occultism_relics_bridge:relic_part",
+        "count": 1
+    },
+    "crushing_time": 200,
+    "ignore_crushing_multiplier": true
+}

@@ -1,0 +1,29 @@
+{
+    "type": "occultism:ritual",
+    "ritual_type": "occultism_relics_bridge:awaken_relic_djinn",
+    "activation_item": {
+        "item": "occultism:book_of_binding_bound_djinni"
+    },
+    "pentacle_id": "occultism:summon_djinni",
+    "duration": 90,
+    "ritual_dummy": {
+        "item": "occultism_relics_bridge:unawakened_artifact_aquarius"
+    },
+    "ingredients": [
+        {
+            "item": "minecraft:anvil"
+        },
+        {
+            "item": "minecraft:diamond"
+        },
+        {
+            "item": "minecraft:lapis_lazuli"
+        },
+        {
+            "item": "occultism_relics_bridge:unawakened_artifact_aquarius"
+        }
+    ],
+    "result": {
+        "item": "occultism_relics_bridge:unawakened_artifact_aquarius"
+    }
+}
