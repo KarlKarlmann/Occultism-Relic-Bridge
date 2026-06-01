@@ -29,6 +29,10 @@ public class RelicConfigManager {
     // Stores relics that are already in the file as comments to avoid duplicates
     private static final Set<ResourceLocation> COMMENTED_ITEMS = new HashSet<>();
     
+    // Stores the values synced from the server (multiplayer)
+    private static final Map<ResourceLocation, String> SERVER_SYNCED_MAP = new HashMap<>();
+    private static boolean isSyncedFromServer = false;
+    
     private static boolean isInitialized = false;
 
     public static void initIfNeeded() {
@@ -57,13 +61,12 @@ public class RelicConfigManager {
                 if (line.startsWith("#")) {
                     String cleanLine = line.substring(1).trim();
                     String[] parts = cleanLine.split("=");
-                    // Check if the comment looks like our mapping (modid:item = ZODIAC)
                     if (parts.length == 2) {
                         try {
                             ResourceLocation itemId = new ResourceLocation(parts[0].trim());
                             COMMENTED_ITEMS.add(itemId);
                         } catch (Exception ignored) {
-                            // Ignore plain text that happens to contain an '=' (e.g., explanations)
+                            // Ignore plain text that happens to contain an '='
                         }
                     }
                     continue;
@@ -152,11 +155,35 @@ public class RelicConfigManager {
         }
     }
 
+    // --- NETWORK SYNC METHODS ---
+
+    public static Map<ResourceLocation, String> getLocalConfigMap() {
+        return CONFIG_MAP;
+    }
+
+    public static void applySyncPacket(Map<ResourceLocation, String> syncedMap) {
+        SERVER_SYNCED_MAP.clear();
+        SERVER_SYNCED_MAP.putAll(syncedMap);
+        isSyncedFromServer = true;
+        LOGGER.info("Occultism Relics Bridge: Received and applied config from server!");
+    }
+
+    public static void clearSync() {
+        if (isSyncedFromServer) {
+            SERVER_SYNCED_MAP.clear();
+            isSyncedFromServer = false;
+            LOGGER.info("Occultism Relics Bridge: Cleared server config (Logged out).");
+        }
+    }
+
     /**
      * Returns the configured value for an item (Zodiac sign name or "BANNED").
-     * Returns NULL if it is not in the config (then the auto-logic applies).
+     * Always prioritizes the server config if we are in multiplayer!
      */
     public static String getConfiguredValue(ResourceLocation itemId) {
+        if (isSyncedFromServer) {
+            return SERVER_SYNCED_MAP.get(itemId);
+        }
         return CONFIG_MAP.get(itemId);
     }
 }
