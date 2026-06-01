@@ -34,7 +34,7 @@ dependencies {
 // ========================================================================// Spezifische Einstellungen für diese Mod
 group = 'net.occultism_relics_bridge'
 // Die Version wird hier separat für DIESE Mod definiert
-version = '1.0.1'
+version = '1.0.2'
 
 minecraft {
     // Hier definieren wir nur die Mixins und den Mod-Source für die Run-Configs.

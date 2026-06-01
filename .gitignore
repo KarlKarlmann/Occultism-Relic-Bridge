@@ -1,0 +1,35 @@
+# ======================================================================
+# Standard Forge / Gradle .gitignore
+# ======================================================================
+
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# IDEs (Eclipse, IntelliJ, VSCode)
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.vscode/
+bin/
+out/
+
+# Forge / Runtime Logs
+run/
+logs/
+crash-reports/
+
+# ======================================================================
+# Eigene Workflow-Dateien (Absolut wichtig für dein Standalone-Setup!)
+# ======================================================================
+local-git.gradle
+*.backup
+temp_build.gradle
+create_pseudo_git_gradle.bat

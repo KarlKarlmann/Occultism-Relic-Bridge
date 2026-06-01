@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * Verwaltet die Zuordnung von Relikten zu Sternzeichen.
- * Kombiniert automatische Zuweisung mit Datapack-Tags.
+ * Kombiniert automatische Zuweisung mit Datapack-Tags und der neuen Config-Datei.
  */
 public class RelicGroupManager {
 
@@ -33,30 +33,52 @@ public class RelicGroupManager {
 
     /**
      * Gibt eine Liste aller Items zurück, die zu einem bestimmten Sternzeichen gehören.
-     * Dies umfasst Items aus dem Datapack-Tag UND automatisch zugewiesene Relics.
+     * Dies umfasst Items aus dem Datapack-Tag, der Config UND automatisch zugewiesene Relics.
      */
     public static List<Item> getItemsForZodiac(Zodiac targetZodiac) {
+        // Initialisiert die Config beim allerersten Aufruf (Lazy-Loading) und generiert neue Einträge
+        RelicConfigManager.initIfNeeded();
+
         List<Item> combinedItems = new ArrayList<>();
 
         // 1. DATAPACK-LOGIK: Lade alle Items, die manuell über Tags (JSON) hinzugefügt wurden
         var tagItems = ForgeRegistries.ITEMS.tags().getTag(targetZodiac.getTag());
         tagItems.forEach(combinedItems::add);
 
-        // 2. AUTOMATISCHE LOGIK: Scanne alle existierenden Items im Spiel
+        // 2. CONFIG & AUTOMATISCHE LOGIK: Scanne alle existierenden Items im Spiel
         for (Item item : ForgeRegistries.ITEMS.getValues()) {
             ResourceLocation registryName = ForgeRegistries.ITEMS.getKey(item);
             
-            // INTELLIGENTER CHECK: Anstatt nach Namespaces ("relics", "artifacts", etc.) zu suchen,
-            // prüfen wir einfach, ob das Item in Java das Relics-Interface implementiert!
+            // INTELLIGENTER CHECK: Prüfen, ob das Item das Relics-Interface implementiert
             if (registryName != null && item instanceof IRelicItem) {
                 
                 // Falls ein Modpack-Macher dieses Relikt manuell über ein Tag einsortiert hat, 
-                // überspringen wir die automatische Zuweisung, um Duplikate zu vermeiden.
+                // überspringen wir die restliche Logik, um Duplikate zu vermeiden.
                 if (isItemInAnyZodiacTag(item)) {
                     continue; 
                 }
 
-                // Automatische Zuweisungs-Regel:
+                // --- NEU: CONFIG PRÜFEN ---
+                String configValue = RelicConfigManager.getConfiguredValue(registryName);
+                
+                // Wenn die Config einen Wert für dieses Item hat (nicht null)
+                if (configValue != null) {
+                    if (configValue.equals("BANNED")) {
+                        continue; // Dieses Item ist verbannt, komplett ignorieren!
+                    }
+                    
+                    // Wenn der Config-Wert unserem gesuchten Sternzeichen entspricht
+                    if (configValue.equals(targetZodiac.name())) {
+                        if (!combinedItems.contains(item)) {
+                            combinedItems.add(item);
+                        }
+                    }
+                    
+                    // Wir haben die Config verarbeitet, also überspringen wir die Auto-Logik für dieses Item
+                    continue; 
+                }
+
+                // --- AUTOMATISCHE ZUWEISUNGS-REGEL (Fallback) ---
                 // Wir nehmen den Hash-Wert des Item-Namens und nutzen Modulo 12.
                 // Das sorgt dafür, dass jedes Relikt IMMER deterministisch exakt einem 
                 // Sternzeichen zugeordnet wird. Selbst wenn Relics updatet, bleibt die Zuordnung stabil!
