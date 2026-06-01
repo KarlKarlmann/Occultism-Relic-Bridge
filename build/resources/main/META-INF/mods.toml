@@ -4,8 +4,9 @@ license="MIT"
 
 [[mods]]
 modId="occultism_relics_bridge"
-version="1.0.0"
+version="1.0.1"
 displayName="Occultism Relics Bridge"
+displayURL="https://www.n3g.de"
 authors="KarlKarlmann"
 description='''
 A bridge between Occultism and Relics.

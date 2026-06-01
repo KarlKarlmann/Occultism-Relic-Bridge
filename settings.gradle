@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories {
+        maven { url  = 'https://maven.minecraftforge.net/' }
+        maven { url  = 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
+    }
+}
+
+// Ein kleiner Trick: file('.').name nimmt automatisch den Namen des aktuellen Ordners.
+// So heißt das Projekt auf GitHub automatisch "occultism_relics_bridge" oder "occultism_expansion",
+// ohne dass du diese Datei jemals ändern musst!
+rootProject.name = file('.').name

@@ -1,37 +1,4 @@
-// --- STANDALONE GITHUB BUILD HEADER ---
-// Diese Datei wird vom Batch-Skript temporär VOR die mod-spezifische build.gradle geklebt.
-
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+'
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-    }
-}
-
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.spongepowered.mixin'
-apply plugin: 'eclipse'
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-minecraft {
-    // Die Mappings werden aus der gradle.properties geladen
-    mappings channel: mappings_channel, version: mappings_version
-}
-
-dependencies {
-    // Das grundlegende Forge-Framework, das jede Mod braucht
-    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-}
-
-// ========================================================================
-// AB HIER FOLGT DIE MOD-SPEZIFISCHE BUILD.GRADLE (wird per Script ergänzt)
-// ========================================================================// Spezifische Einstellungen für diese Mod
+// Spezifische Einstellungen für diese Mod
 group = 'net.occultism_relics_bridge'
 // Die Version wird hier separat für DIESE Mod definiert
 version = '1.0.1'
