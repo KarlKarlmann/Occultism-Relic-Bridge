@@ -88,8 +88,6 @@ processResources {
 }
 
 jar {
-    // HIER legen wir den exakten Dateinamen fest!
-    // Resultat z.B.: occultism_relics_bridge_by_KarlKarlmann_Forge_1.20.1_ver_1.0.0.jar
     archiveFileName = "${project.name}_by_KarlKarlmann_Forge_${mc_version}_ver_${project.version}.jar"
     
     manifest {
